@@ -1,0 +1,75 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Add your custom styles below this line */
+
+#main {
+  margin: 0;
+}
+#background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+#background > video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#front {
+  max-width: 100vw;
+  max-height: 100vh;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+#front > #nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+  position: absolute;
+  top: 0 !important;
+  background-color: transparent;
+}
+.logo-link {
+  display: flex;
+  justify-content: center;
+  width: 220px;
+  padding: 20px;
+}
+.name {
+  /* overflow: hidden; */
+  max-height: 23px;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.code-by {
+  width: 64px;
+  white-space: nowrap;
+}
+.hidden {
+  display: inline-block;
+  overflow-x: hidden;
+  width: 60px; /* adjust as needed */
+  white-space: nowrap;
+}
