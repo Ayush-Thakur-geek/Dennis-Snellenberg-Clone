@@ -120,10 +120,10 @@ a {
 
 /* nav right */
 #items {
-  width: 370px;
+  width: 400px;
   height: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 

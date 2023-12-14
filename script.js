@@ -66,27 +66,39 @@ function dot() {
 
 function magnetic() {
     let magnet = document.getElementsByClassName("magnet");
+    let magnetElem = document.getElementsByClassName("magnet-elem");
     for (let i = 0; i < magnet.length; i++) {
-        let initialX = magnet[i].offsetLeft;
-        let initialY = magnet[i].offsetTop;
-        let tempX = initialX;
-        let tempY = initialY;
-        magnet[i].addEventListener("mousemove", function(event) {
-            let mouseX = event.clientX;
-            let magnetX = mouseX - tempX;
-            tempX = mouseX;
+        // for (let j = 0; j < magnetElem.length; j++) {
+        //     // magnet[i].addEventListener("mousemove", function(event){
+        //     //     magnetElem[i].style.transition = "transform 0.2s";
+        //     //     magnetElem[i].style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        //     // });
 
-            let mouseY = event.clientY;
-            let magnetY = mouseY - tempY;
-            tempY = mouseY;
-            magnet[i].style.transition = "transform 0.2s";
-            magnet[i].style.transform = `translate(${magnetX + 10}px, ${magnetY + 10}px)`;
-            console.log(`Mouse position: ${event.clientX}, ${event.clientY}`);
+            
+
+        //     magnet[i].addEventListener("mouseleave", function(event){
+        //         magnetElem[i].style.transition = "transform 0.5s";
+        //         magnetElem[i].style.transform = `translate(${0}px, ${0}px)`;
+        //     });
+        // }
+        magnet[i].addEventListener("mousemove", function(event) {
+            let rect = magnet[i].getBoundingClientRect();
+            let centerX = rect.left + rect.width / 2;
+            let centerY = rect.top + rect.height / 2;
+            let x = event.clientX - centerX;
+            let y = event.clientY - centerY;
+            if ((x < 50 || x > -50) && (y < 50 || y > -50)) {
+                magnet[i].style.transition = "transform 0.2s ease-out";
+                magnet[i].style.transform = `translate(${x}px, ${y}px)`;
+            } else {
+                magnet[i].style.transition = "transform 0.2s ease-out";
+                magnet[i].style.transform = `translate(${0}px, ${0}px)`;
+            }
         });
 
-        magnet[i].addEventListener("mouseout", function() {
-            magnet[i].style.transition = "transform 0.2s";
-            magnet[i].style.transform = `translate(0px, 0px)`;
+        magnet[i].addEventListener("mouseleave", function(event) {
+            magnet[i].style.transition = "transform 0.2s ease-out";
+            magnet[i].style.transform = `translate(${0}px, ${0}px)`;
         });
     }
 }
