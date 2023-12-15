@@ -67,6 +67,10 @@ function dot() {
 function magnetic() {
   let magnet = document.getElementsByClassName("magnet");
   let magnetElem = document.getElementsByClassName("magnet-elem");
+
+  let magx = 0;
+  let magy = 0;
+
   for (let i = 0; i < magnet.length; i++) {
     magnet[i].addEventListener("mousemove", function (event) {
       let rect = magnet[i].getBoundingClientRect();
@@ -74,7 +78,13 @@ function magnetic() {
       let centerY = rect.top + rect.height / 2;
       let x = event.clientX - centerX;
       let y = event.clientY - centerY;
-      if ((x < 40 || x > -40) && (y < 40 || y > -40)) {
+
+      magx = x;
+      magy = y;
+
+      let bounce = 0;
+
+      if ((x < 10 || x > -10) && (y < 10 || y > -10)) {
         magnet[i].style.transition = "transform 0.2s ease-out";
         magnet[i].style.transform = `translate(${x}px, ${y}px)`;
       } else {
@@ -85,7 +95,15 @@ function magnetic() {
 
     magnet[i].addEventListener("mouseleave", function (event) {
       magnet[i].style.transition = "transform 0.2s ease-out";
-      magnet[i].style.transform = `translate(${0}px, ${0}px)`;
+      magnet[i].style.transform = `translate(${-magx/2}px, ${-magy/2}px)`;
+    
+      setTimeout(() => {
+        magnet[i].style.transform = `translate(${magx/4}px, ${magy/4}px)`;
+      }, 200); // delay by 200ms
+    
+      setTimeout(() => {
+        magnet[i].style.transform = `translate(${0}px, ${0}px)`;
+      }, 400); // delay by 400ms
     });
   }
 }
@@ -192,9 +210,36 @@ function horizontalLoop(items, config) {
   return tl;
 }
 
+// function rotationOfMenuLines() {
+//   let l1 = document.getElementsByClassName("line1")[0];
+//   let l2 = document.getElementsByClassName("line2")[0];
+//   let menu = document.getElementById("menu-btn");
+
+//   let clicks = 0;
+
+//   menu.addEventListener("click", function () {
+//     l1.style.transition = "transform 0.5s";
+//     l2.style.transition = "transform 0.5s";
+//     l1.style.transformOrigin = "center";
+//     l2.style.transformOrigin = "center";
+
+//     if (clicks % 2 == 0) {
+//       l1.style.transform = "rotate(45deg)";
+//       l2.style.transform = "rotate(-45deg)";
+//     } else {
+//       l1.style.transform = "rotate(0deg)";
+//       l2.style.transform = "rotate(0deg)";
+//     }
+
+//     clicks++;
+//   });
+// }
+
 const elems = gsap.utils.toArray(".scroll");
 const loop = horizontalLoop(elems, { paused: false, repeat: -1 });
 
+
+// rotationOfMenuLines();
 magnetic();
 logoExpand();
 dot();
