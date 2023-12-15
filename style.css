@@ -45,13 +45,17 @@ a {
   width: 100vw;
   height: 100vh;
   background-color: black;
+  overflow: hidden;
 }
-/* #background > video {
+
+
+video {
   position: absolute;
   height: 100%;
   width: 100%;
+  filter: blur(10px);
   object-fit: cover;
-} */
+}
 
 /* front part */
 
@@ -60,6 +64,7 @@ a {
   max-height: 100vh;
   opacity: 1;
   z-index: 1;
+  background-color: transparent;
   color: white;
 }
 
@@ -120,7 +125,7 @@ a {
 
 /* nav right */
 #items {
-  width: 400px;
+  width: fit-content;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -132,7 +137,7 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 120px;
+  width: 6vw;
   height: 60px;
 }
 #work > .dot, #about > .dot, #contact > .dot {
@@ -149,7 +154,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1020px;
+  width: 6vw;
   height: 60px;
 }
 
@@ -185,7 +190,7 @@ a {
 
 #location > .text {
   position: absolute;
-  font-size: 10px;
+  font-size: 0.5vw;
   font-weight: 200;
   left: 10%;
 }
@@ -207,12 +212,23 @@ a {
   overflow-x: hidden;
   width: 100vw;
   top: 63%;
+  animation: RightToLeft 10s infinite linear;
 }
 
 #big-name > h1  {
   position: relative;
-  font-size: 12vw;
+  font-size: 12.5vw;
   font-weight: 400;
   white-space: nowrap;
 }
-  
+
+/* page2 start=> */
+
+#page2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
