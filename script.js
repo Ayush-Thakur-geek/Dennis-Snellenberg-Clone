@@ -81,16 +81,8 @@ function magnetic() {
 
       magx = x;
       magy = y;
-
-      let bounce = 0;
-
-      if ((x < 10 || x > -10) && (y < 10 || y > -10)) {
-        magnet[i].style.transition = "transform 0.2s ease-out";
-        magnet[i].style.transform = `translate(${x}px, ${y}px)`;
-      } else {
-        magnet[i].style.transition = "transform 0.2s ease-out";
-        magnet[i].style.transform = `translate(${0}px, ${0}px)`;
-      }
+      magnet[i].style.transition = "transform 0.2s ease-out";
+      magnet[i].style.transform = `translate(${x}px, ${y}px)`;
     });
 
     magnet[i].addEventListener("mouseleave", function (event) {

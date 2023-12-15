@@ -101,7 +101,7 @@ video {
   justify-content: center;
   align-items: center;
   width: 220px;
-  height: 70px;
+  height: 40px;
   padding: 5px 0;
 }
 .name {
@@ -158,8 +158,8 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 6vw;
-  height: 60px;
+  width: 4vw;
+  height: 40px;
 }
 
 /* the arrow icon */
@@ -304,7 +304,7 @@ video {
 .about1 > h4 {
   gap: 10px;
   max-width: 43vw;
-  font-size: 40px;
+  font-size: 2.5vw;
   font-weight: 300;
 }
 
@@ -324,7 +324,7 @@ video {
 .about2 > h4 {
   max-width: 15vw;
   font-weight: 300;
-  font-size: 17px;
+  font-size: 1vw;
   padding: 1vw 0;
 }
 
@@ -363,4 +363,77 @@ video {
   width: 6vw;
   height: 6vw;
   
+}
+
+/* work page start==> */
+
+#work-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: white;
+}
+
+#work-container {
+  width: 80vw;
+  height: fit-content;
+  border-bottom: 1px solid black;
+}
+
+#view-circle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: blue;
+  opacity: 0;
+}
+
+#work-container > a {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 80vw;
+  height: 25vh;
+  color: black;
+}
+
+#work-container > a > img {
+  position: absolute;
+  opacity: 0;
+  width: 400px;
+  height: 400px;
+}
+
+.work-main-text {
+  height: fit-content;
+  width: 55vw;
+
+}
+
+.work-main-text > h1 > span {
+  
+}
+
+.work-main-text > h1 {
+  width: 45vw;
+  position: relative;
+  font-size: 4em;
+  right: -18.2%;
+  font-weight: 500;
+  font-size: 6em;
+}
+
+.border-work-sections {
+  border-top: 1px solid black;
+}
+
+.work-sub-text > h4 {
+  font-weight: 100;
+  padding-left: 5vw;
 }
