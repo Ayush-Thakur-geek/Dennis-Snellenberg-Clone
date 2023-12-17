@@ -18,7 +18,12 @@
       href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
   </head>
   <body>
+    <div id="view-circle">
+      <h4>View</h4>
+    </div>
+    <div id="miniCircle"></div>
     <div id="main">
+      
       <div id="background">
         <video src="vids/pexels-oleg-lehnitsky-7898649 (1080p).mp4"></video>
       </div>
@@ -121,14 +126,15 @@
         </div>
       </div>
 
-      <!-- <div id="menu-container">
-        <div id="menu-btn" class="magnet">
+      <div id="menu-container">
+        <div id="menu-btn" class="magnet color-container">
           <div class="lines magnet">
             <div class="line line1"></div>
             <div class="line line2"></div>
           </div>
+          <div id="sub-menu-btn" class="btn-color"></div>
         </div>
-      </div> -->
+      </div>
 
       <div id="page2">
         <div id="page2-about">
@@ -156,20 +162,19 @@
           </div>
         </div>
         <div id="about-me-btn-container">
-          <div id="about-me-btn" class="magnet">
+          <div id="about-me-btn" class="magnet color-container">
             <div class="about-me-text magnet">
               <h4 >About me</h4>
             </div>
+            <div id="sub-about-me-btn" class="btn-color"></div>
           </div>
         </div>
       </div>
       <div id="work-page">
         
         <div id="work-container">
-          <div id="view-circle">
-            <h4>View</h4>
-          </div>
-          <a id="fabric" class="border-work-sections" href="#work-container">
+          
+          <a id="fabric" class="border-work-sections elem" href="#work-container">
             <img src="images/fabric.png" alt="">
             <div class="work-main-text">
               <h1><span>FABRIC™</span></h1>
@@ -178,7 +183,7 @@
               <h4><span>Design & Development</span></h4>
             </div>
           </a>
-          <a id="aanstekelij" class="border-work-sections" href="#work-container">
+          <a id="aanstekelij" class="border-work-sections elem" href="#work-container">
             <img src="images/Aanstekelijk.png" alt="">
             <div class="work-main-text">
               <h1><span>Aanstekelij</span></h1>
@@ -187,7 +192,7 @@
               <h4><span>Design & Development</span></h4>
             </div>
           </a>
-          <a id="base-create" class="border-work-sections" href="#work-container">
+          <a id="base-create" class="border-work-sections elem" href="#work-container">
             <img src="images/base create.png" alt="">
             <div class="work-main-text">
               <h1><span>Base Create</span></h1>
@@ -196,7 +201,7 @@
               <h4><span>Design & Development</span></h4>
             </div>
           </a>
-          <a id="avvr" class="border-work-sections" href="#work-container">
+          <a id="avvr" class="border-work-sections elem" href="#work-container">
             <img src="images/avvr.png" alt="">
             <div class="work-main-text">
               <h1><span>AVVR</span></h1>
@@ -208,7 +213,7 @@
         </div>
       </div>
     </div>
-    </div>
+    <!-- </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script

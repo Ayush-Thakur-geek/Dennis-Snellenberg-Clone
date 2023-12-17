@@ -202,36 +202,113 @@ function horizontalLoop(items, config) {
   return tl;
 }
 
-// function rotationOfMenuLines() {
-//   let l1 = document.getElementsByClassName("line1")[0];
-//   let l2 = document.getElementsByClassName("line2")[0];
-//   let menu = document.getElementById("menu-btn");
+function circleMouseFollower() {
+  window.addEventListener("mousemove", function (dets) {
+    document.querySelector(
+      "#miniCircle"
+    ).style.transform = `translate(${dets.clientX}px, ${dets.clientY}px)`;
+  });
+}
 
-//   let clicks = 0;
+// circleMouseFollower()
 
-//   menu.addEventListener("click", function () {
-//     l1.style.transition = "transform 0.5s";
-//     l2.style.transition = "transform 0.5s";
-//     l1.style.transformOrigin = "center";
-//     l2.style.transformOrigin = "center";
+function rotationOfMenuLines() {
+  let l1 = document.getElementsByClassName("line1")[0];
+  let l2 = document.getElementsByClassName("line2")[0];
+  let menu = document.getElementById("menu-btn");
 
-//     if (clicks % 2 == 0) {
-//       l1.style.transform = "rotate(45deg)";
-//       l2.style.transform = "rotate(-45deg)";
-//     } else {
-//       l1.style.transform = "rotate(0deg)";
-//       l2.style.transform = "rotate(0deg)";
-//     }
+  let clicks = 0;
 
-//     clicks++;
+  menu.addEventListener("click", function () {
+    l1.style.transition = "transform 0.5s";
+    l2.style.transition = "transform 0.5s";
+    l1.style.transformOrigin = "center";
+    l2.style.transformOrigin = "center";
+
+    if (clicks % 2 == 0) {
+      l1.style.transform = "rotate(45deg)";
+      l2.style.transform = "rotate(-45deg)";
+    } else {
+      l1.style.transform = "rotate(0deg)";
+      l2.style.transform = "rotate(0deg)";
+    }
+
+    clicks++;
+  });
+}
+
+function colorAppear() { // still needs working
+  let colorCtn = document.getElementsByClassName("color-container"); 
+  let color = document.getElementsByClassName("btn-color");
+  for (let i = 0; i < color.length; i++) {
+    color[i].style.top = "100%";
+    colorCtn[i].addEventListener("mouseover", function () {
+      color[i].style.opacity = "1";
+      color[i].style.top = "0";
+      color[i].style.transition = "top 0.5s";
+    });
+    setTimeout(() => {
+      colorCtn[i].addEventListener("mouseout", function () {
+        color[i].style.top = "-100%";
+        color[i].style.transition = "top 0.5s";
+        
+      });
+    }, 1000);
+  }
+}
+
+// function mouseFollower() {
+//   let follower = document.getElementById("view-circle");
+//   let container = document.getElementById("work-container");
+//   let xPrev = 0;
+//   let yPrev = 0;
+//   window.addEventListener("mousemove", function (event) {
+    
+//     follower.style.transition = "transform 0.2s ease-out";
+//     follower.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
 //   });
 // }
 
+function workImages() {
+  let diffRot = 0;
+  let rotate = 0;
+  document.querySelectorAll(".elem").forEach((elem) => {
+    elem.addEventListener("mouseleave", function (dets) {
+      gsap.to(elem.querySelector("img"), {
+        opacity: 0,
+        ease: "power3.out",
+      });
+    });
+    elem.addEventListener("mousemove", function (dets) {
+      let diff = dets.clientY - elem.getBoundingClientRect().top;
+      diffRot = dets.clientX - rotate;
+      rotate = dets.clientX;
+
+      gsap.to(elem.querySelector("img"), {
+        opacity: 1,
+        ease: "power3.out",
+        y: diff,
+        x: (dets.clientX - 500),
+        rotation: gsap.utils.clamp(-20, 20, diffRot),
+      });
+    });
+  });
+}
+
 const elems = gsap.utils.toArray(".scroll");
 const loop = horizontalLoop(elems, { paused: false, repeat: -1 });
+
+
+
+
+
+// Function Calls ==>>
 
 
 // rotationOfMenuLines();
 magnetic();
 logoExpand();
 dot();
+colorAppear();
+// mouseFollower();
+workImages();
